@@ -1,12 +1,12 @@
 # TinyMCE Widget for Yii2
 
 
-[![Latest Version](https://img.shields.io/github/tag/2amigos/yii2-tinymce-widget.svg?style=flat-square&label=release)](https://github.com/2amigos/yii2-tinymce-widget/tags)
-[![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/2amigos/yii2-tinymce-widget/master.svg?style=flat-square)](https://travis-ci.org/2amigos/yii2-tinymce-widget)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-tinymce-widget/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-tinymce-widget)
-[![Total Downloads](https://img.shields.io/packagist/dt/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://packagist.org/packages/2amigos/yii2-tinymce-widget)
+> [![Latest Version](https://img.shields.io/github/tag/2amigos/yii2-tinymce-widget.svg?style=flat-square&label=release)](https://github.com/2amigos/yii2-tinymce-widget/tags)
+> [![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
+> [![Build Status](https://img.shields.io/travis/2amigos/yii2-tinymce-widget/master.svg?style=flat-square)](https://travis-ci.org/2amigos/yii2-tinymce-widget)
+> [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-tinymce-widget/code-structure)
+> [![Quality Score](https://img.shields.io/scrutinizer/g/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-tinymce-widget)
+> [![Total Downloads](https://img.shields.io/packagist/dt/2amigos/yii2-tinymce-widget.svg?style=flat-square)](https://packagist.org/packages/2amigos/yii2-tinymce-widget)
 
 Renders a [TinyMCE WYSIWYG text editor plugin](http://www.tinymce.com/) widget.
 
@@ -17,7 +17,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require 2amigos/yii2-tinymce-widget:~1.1
+> composer require 2amigos/yii2-tinymce-widget:~1.1
+
+```
+or add
+
+```json
+> "2amigos/yii2-tinymce-widget" : "~1.1"
 ```
 File composer.lock 
 
@@ -33,17 +39,13 @@ composer install --prefer-source // Installation of the repository of the compos
 ```
 
 
-or add
 
-```json
-"2amigos/yii2-tinymce-widget" : "~1.1"
-```
 
 to the require section of your application's `composer.json` file.
 
 ## Usage
 Create file config TinyMce in app/config/TinyMce/config.php
-<?php
+```php
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Moscow');
 
@@ -379,7 +381,8 @@ return array_merge(
     ),
     )
 );
-
+```
+```php
 // set configuration application `aliases`
 'aliases' => [
         '@fm' => dirname(__DIR__) . '/web/js/fm/',
@@ -389,15 +392,12 @@ return array_merge(
         '@fm-upload-thumbs-base-path' => dirname(__DIR__) . '/web/js/fm/source/thumbs',
         '@fm-path-original-config' => dirname(__DIR__) . '/web/js/fm/filemanager/config',
     ],
-=======
-
->>>>>>> d58bad3ede450f86acd475fb4ecda982b980132b
 
 ```
-
+Usage widget: 
+```php
 use dosamigos\tinymce\TinyMce;
 
-<<<<<<< HEAD
 <?= $form->field($model, 'text')->widget(\dosamigos\tinymce\TinyMce::className(), [
         'options' => ['rows' => 25],
         'language' => 'ru',
@@ -478,20 +478,21 @@ title[*],tr[*],track[*],tt[*],u[*],ul[*],var[*],video[*],wbr[*],xmp[*]",
             'elementpath' => false,
         ]
     ]);?>
-=======
-<?= $form->field($model, 'text')->widget(TinyMce::className(), [
-    'options' => ['rows' => 6],
-    'language' => 'es',
-    'clientOptions' => [
-        'plugins' => [
-            "advlist autolink lists link charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste"
-        ],
-        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-    ]
-]);?>
->>>>>>> d58bad3ede450f86acd475fb4ecda982b980132b
+```
+```php
+> <?= $form->field($model, 'text')->widget(TinyMce::className(), [
+>    'options' => ['rows' => 6],
+>    'language' => 'es',
+>    'clientOptions' => [
+>        'plugins' => [
+>            "advlist autolink lists link charmap print preview anchor",
+>            "searchreplace visualblocks code fullscreen",
+>            "insertdatetime media table contextmenu paste"
+>        ],
+>        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+>    ]
+>]);?>
+
 ```
 
 ## Testing
