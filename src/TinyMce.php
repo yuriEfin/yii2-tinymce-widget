@@ -96,7 +96,7 @@ class TinyMce extends InputWidget
             $this->createConfig();
         } else {
             if (is_string($this->creatorConfig)) {
-                $class = new $this->creatorConfig;
+                $class = $this->creatorConfig;
                 $this->creatorConfig = new $class($this->fullConfigPath, $this->customConfigPath, $this->config);
                 // create
                 $this->createConfig();
@@ -104,9 +104,9 @@ class TinyMce extends InputWidget
                 $methodCreatorConfig = $this->methodCreatorConfig;
                 if (is_string($methodCreatorConfig)) {
                     $this->creatorConfig->$methodCreatorConfig();
+                } elseif (is_callable($this->methodCreatorConfig)) {
+                    call_user_func($this->methodCreatorConfig);
                 }
-            } elseif (is_callable($this->methodCreatorConfig)) {
-                call_user_func($this->methodCreatorConfig);
             }
         }
 

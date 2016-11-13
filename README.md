@@ -191,6 +191,28 @@ $config = array(
     public $creatorConfig; // Change your creator 
 
 ```
+Creator config 
+```php
+            if (!$this->creatorConfig) {
+                $this->creatorConfig = new Creator($this->fullConfigPath, $this->customConfigPath, $this->config);
+                // create
+                $this->createConfig();
+            } else {
+                if (is_string($this->creatorConfig)) {
+                    $class = $this->creatorConfig;
+                    $this->creatorConfig = new $class($this->fullConfigPath, $this->customConfigPath, $this->config);
+                    // create
+                    $this->createConfig();
+                } elseif (is_object($this->creatorConfig)) {
+                    $methodCreatorConfig = $this->methodCreatorConfig;
+                    if (is_string($methodCreatorConfig)) {
+                        $this->creatorConfig->$methodCreatorConfig();
+                    } elseif (is_callable($this->methodCreatorConfig)) {
+                        call_user_func($this->methodCreatorConfig);
+                    }
+                }
+            }
+```
 
 
 ```php
