@@ -47,7 +47,7 @@ composer install --prefer-source // Installation of the repository of the compos
 to the require section of your application's `composer.json` file.
 
 ## Usage
-Create file config TinyMce in app/config/TinyMce/config.php
+Copy file config TinyMce  => app/config/TinyMce/config.php
 ```json
 ... 
 
