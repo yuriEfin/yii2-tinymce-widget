@@ -25,9 +25,11 @@ or add
 ```json
 > "2amigos/yii2-tinymce-widget" : "~1.1"
 ```
-File composer.lock 
 
-"name": "2amigos/yii2-tinymce-widget",
+Change file composer.lock 
+
+```json
+            "name": "2amigos/yii2-tinymce-widget",
             "version": "1.1.1",
             "source": {
                 "type": "git",
@@ -35,9 +37,10 @@ File composer.lock
                 "reference": "d58bad3ede450f86acd475fb4ecda982b980132b"
             },
 
+```
+```php 
 composer install --prefer-source // Installation of the repository of the composer.loc
 ```
-
 
 
 
