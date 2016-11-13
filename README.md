@@ -208,6 +208,27 @@ Creator config
     ],
 
 ```
+
+If error upload file, code action controller to use TinyMce 
+
+```php
+
+    public function init() // ``json  OR this code in to your action controller```
+    {
+        $pathsTinyMce = [
+            '{upload_dir}' => Yii::getAlias('@fm-upload-base-path') . '/' . Yii::$app->user->companyid . '/user_' . Yii::$app->user->id,
+            '{current_path}' => Yii::getAlias('@fm-upload-current-path') . '/' . Yii::$app->user->companyid . '/user_' . Yii::$app->user->id,
+            '{thumbs_base_path}' => Yii::getAlias('@fm-upload-thumbs-base-path') . '/' . Yii::$app->user->companyid . '/user_' . Yii::$app->user->id,
+        ];
+        foreach ($pathsTinyMce as $path) {
+            @mkdir($path, 0777, true);
+        }
+        parent::init();
+    }
+
+```
+
+
 Usage widget: 
 ```php
 use dosamigos\tinymce\TinyMce;
