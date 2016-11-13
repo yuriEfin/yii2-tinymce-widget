@@ -19,7 +19,6 @@ Either run
 ```
 composer require 2amigos/yii2-tinymce-widget:~1.1
 ```
-```
 File composer.lock 
 
 "name": "2amigos/yii2-tinymce-widget",
@@ -390,11 +389,15 @@ return array_merge(
         '@fm-upload-thumbs-base-path' => dirname(__DIR__) . '/web/js/fm/source/thumbs',
         '@fm-path-original-config' => dirname(__DIR__) . '/web/js/fm/filemanager/config',
     ],
+=======
+
+>>>>>>> d58bad3ede450f86acd475fb4ecda982b980132b
 
 ```
 
 use dosamigos\tinymce\TinyMce;
 
+<<<<<<< HEAD
 <?= $form->field($model, 'text')->widget(\dosamigos\tinymce\TinyMce::className(), [
         'options' => ['rows' => 25],
         'language' => 'ru',
@@ -475,6 +478,20 @@ title[*],tr[*],track[*],tt[*],u[*],ul[*],var[*],video[*],wbr[*],xmp[*]",
             'elementpath' => false,
         ]
     ]);?>
+=======
+<?= $form->field($model, 'text')->widget(TinyMce::className(), [
+    'options' => ['rows' => 6],
+    'language' => 'es',
+    'clientOptions' => [
+        'plugins' => [
+            "advlist autolink lists link charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        'toolbar' => "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    ]
+]);?>
+>>>>>>> d58bad3ede450f86acd475fb4ecda982b980132b
 ```
 
 ## Testing
