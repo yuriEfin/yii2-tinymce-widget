@@ -79,13 +79,37 @@ class TinyMce extends InputWidget
     public $creatorConfig;
 
     /**
+     * is object $creatorConfig - use this methodCreatorConfig else use this to class method createConfig
+     * @var type 
+     */
+    public $methodCreatorConfig = 'merge';
+
+    /**
      * @inheritdoc
      */
     public function run()
     {
         $this->setPaths();
-        $this->creatorConfig = new Creator($this->fullConfigPath, $this->customConfigPath, $this->config);
-        $this->createConfig();
+        if (!$this->creatorConfig) {
+            $this->creatorConfig = new Creator($this->fullConfigPath, $this->customConfigPath, $this->config);
+            // create
+            $this->createConfig();
+        } else {
+            if (is_string($this->creatorConfig)) {
+                $class = new $this->creatorConfig;
+                $this->creatorConfig = new $class($this->fullConfigPath, $this->customConfigPath, $this->config);
+                // create
+                $this->createConfig();
+            } elseif (is_object($this->creatorConfig)) {
+                $methodCreatorConfig = $this->methodCreatorConfig;
+                if (is_string($methodCreatorConfig)) {
+                    $this->creatorConfig->$methodCreatorConfig();
+                }
+            } elseif (is_callable($this->methodCreatorConfig)) {
+                call_user_func($this->methodCreatorConfig);
+            }
+        }
+
         if ($this->hasModel()) {
             echo Html::activeTextarea($this->model, $this->attribute, $this->options);
         } else {

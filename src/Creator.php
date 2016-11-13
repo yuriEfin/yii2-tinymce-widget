@@ -27,6 +27,5 @@ class Creator
     {
         $this->configuration = strtr(file_get_contents($this->newConfig), $this->datas);
         file_put_contents($this->fileConfigLib, $this->configuration);
-        dump(file_get_contents($this->fileConfigLib));
     }
 }
