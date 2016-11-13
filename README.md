@@ -213,7 +213,7 @@ If error upload file, code action controller to use TinyMce
 
 ```php
 
-    public function init() // ``json  OR this code in to your action controller```
+    public function init() // ```json  OR this code in to your action controller```
     {
         $pathsTinyMce = [
             '{upload_dir}' => Yii::getAlias('@fm-upload-base-path'), // your path
