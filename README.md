@@ -48,27 +48,8 @@ to the require section of your application's `composer.json` file.
 
 ## Usage
 Create file config TinyMce in app/config/TinyMce/config.php
-```php
-mb_internal_encoding('UTF-8');
-date_default_timezone_set('Europe/Moscow');
-
-/*
-  |--------------------------------------------------------------------------
-  | Optional security
-  |--------------------------------------------------------------------------
-  |
-  | if set to true only those will access RF whose url contains the access key(akey) like:
-  | <input type="button" href="../filemanager/dialog.php?field_id=imgField&lang=en_EN&akey=myPrivateKey" value="Files">
-  | in tinymce a new parameter added: filemanager_access_key:"myPrivateKey"
-  | example tinymce config:
-  |
-  | tiny init ...
-  | external_filemanager_path:"../filemanager/",
-  | filemanager_title:"Filemanager" ,
-  | filemanager_access_key:"myPrivateKey" ,
-  | ...
-  |
- */
+```json
+... 
 
 define('USE_ACCESS_KEYS', false); // TRUE or FALSE
 
@@ -113,7 +94,7 @@ $config = array(
       | with start and final /
       |
      */
-    'upload_dir' => '{upload_dir}',// <-- This
+    'upload_dir' => '{upload_dir}',// <--  This {key config}
     /*
       |--------------------------------------------------------------------------
       | relative path from filemanager folder to upload folder
@@ -122,7 +103,7 @@ $config = array(
       | with final /
       |
      */
-    'current_path' => '{current_path}',// <-- This
+    'current_path' => '{current_path}',// <--  This {key config}
     /*
       |--------------------------------------------------------------------------
       | relative path from filemanager folder to thumbs folder
@@ -132,7 +113,7 @@ $config = array(
       | DO NOT put inside upload folder
       |
      */
-    'thumbs_base_path' => '{thumbs_base_path}',// <-- This
+    'thumbs_base_path' => '{thumbs_base_path}',// <-- This {key config}
     /*
       |--------------------------------------------------------------------------
       | Access keys
